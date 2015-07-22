@@ -22,11 +22,11 @@ build:
 
 image: build
 	@echo Building Go image $(TAG)
-	@docker build -t aurlaw/gotest:$(TAG) .
+	sudo docker build -t aurlaw/gotest:$(TAG) .
 
 container: image
 	@echo Running Go image $(TAG)
-	@docker run -it aurlaw/gotest:$(TAG)
+	sudo @docker run -it aurlaw/gotest:$(TAG)
 
 # release: deps build image
 # 	@docker push shipyard/shipyard:$(TAG)
@@ -35,3 +35,4 @@ container: image
 # 	@godep go test -v ./...
 
 .PHONY: all deps build clean media image test release
+
