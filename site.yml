@@ -1,0 +1,15 @@
+---
+- name: Install Nginx
+  hosts: all
+  # remote_user: root
+  sudo: yes
+
+  tasks:
+    - name: update apt cache
+      apt: update_cache=yes
+
+  roles:
+    # - common
+    - docker.ubuntu    
+    - nginx
+    - golang
